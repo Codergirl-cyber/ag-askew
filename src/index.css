@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { 
+  font-family: 'Sora', sans-serif; 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  background: linear-gradient(180deg, #008CFF 0%, #9AC1F4 100%);
+  min-height: 100vh;
+  color: #0a0a0a;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
