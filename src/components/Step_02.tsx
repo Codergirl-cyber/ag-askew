@@ -117,7 +117,8 @@ export default function PlatformConnect() {
     return (
         <div
             style={{
-                width: c.width,
+                width: "100%",
+                maxWidth: c.width,
                 display: "flex",
                 flexDirection: "column",
                 gap: c.gap,

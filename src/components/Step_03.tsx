@@ -158,7 +158,8 @@ export default function CashbackStack() {
         <div
             ref={containerRef}
             style={{
-                width: c.width,
+                width: "100%",
+                maxWidth: c.width,
                 display: "flex",
                 flexDirection: "column",
                 gap: c.gap,
