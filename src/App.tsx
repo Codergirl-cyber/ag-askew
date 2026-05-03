@@ -36,7 +36,7 @@ function App() {
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         paddingTop: '120px', paddingBottom: '60px',
         gap: '48px',
-        overflow: 'hidden',
+        overflow: 'visible',
       }}>
         {/* ── Hero cloud — left side, near text level ── */}
         <HoverImage src={cloud1} alt="" style={{
@@ -79,7 +79,7 @@ function App() {
         position: 'relative', zIndex: 1,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         paddingBottom: '80px',
-        overflow: 'hidden',
+        overflow: 'visible',
       }}>
         {/* ── Section cloud ── */}
         <HoverImage src={cloud2} alt="" style={{
@@ -139,7 +139,7 @@ function App() {
               </h3>
               <p style={{
                 fontSize: 'clamp(16px, 2vw, 22px)', fontWeight: 500,
-                color: '#3b82f6', margin: 0,
+                color: '#ffffff', margin: 0,
               }}>
                 Askew Changes That.
               </p>
@@ -156,7 +156,7 @@ function App() {
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         paddingTop: '80px', paddingBottom: '80px',
         gap: '80px',
-        overflow: 'hidden',
+        overflow: 'visible',
       }}>
         {/* ── Section cloud ── */}
         <HoverImage src={cloud1} alt="" style={{
@@ -243,7 +243,7 @@ function App() {
         position: 'relative', zIndex: 1,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         paddingTop: '40px', paddingBottom: '80px',
-        overflow: 'hidden',
+        overflow: 'visible',
       }}>
         {/* ── Section cloud ── */}
         <HoverImage src={cloud2} alt="" style={{
@@ -281,7 +281,7 @@ function App() {
         position: 'relative', zIndex: 1,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         paddingTop: '40px', paddingBottom: '80px',
-        overflow: 'hidden',
+        overflow: 'visible',
       }}>
         {/* ── Section cloud ── */}
         <HoverImage src={cloud1} alt="" style={{
@@ -320,7 +320,7 @@ function App() {
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         paddingTop: '80px', paddingBottom: '0px',
         gap: '40px',
-        overflow: 'hidden',
+        overflow: 'visible',
       }}>
         {/* ── Section cloud ── */}
         <HoverImage src={clouds4} alt="" style={{

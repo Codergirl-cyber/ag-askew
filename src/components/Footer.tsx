@@ -144,7 +144,7 @@ export default function Footer() {
                 boxSizing: "border-box",
                 padding: `${CONFIG.paddingTop} ${CONFIG.paddingX} ${CONFIG.paddingBottom}`,
                 position: "relative",
-                overflow: "hidden",
+                overflow: "visible",
             }}
         >
             {/* Subtle noise texture */}

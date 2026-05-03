@@ -135,7 +135,7 @@ export default function GetStartedHero() {
                 alignItems: "center",
                 padding: `${CONFIG.paddingY} ${CONFIG.paddingX}`,
                 position: "relative",
-                overflow: "hidden",
+                overflow: "visible",
                 paddingBottom: "48px",  // ← add here
             }}
         >
