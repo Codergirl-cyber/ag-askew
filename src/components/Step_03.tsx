@@ -22,7 +22,7 @@ const CONFIG = {
     totalLabel: {
         text: "TOTAL CASHBACK EARNED",
         fontSize: 12,
-        color: "#B8D2D6",
+        color: "#ffffffff",
         fontWeight: 600,
         letterSpacing: "0.1em",
     },
@@ -35,9 +35,9 @@ const CONFIG = {
         animationDuration: 3000, // ms
     },
     growth: {
-        text: "+23% vs last period",
-        fontSize: 14,
-        color: "#F8A65A",
+        text: "+23% vs last period ↗",
+        fontSize: 16,
+        color: "#ffffffff",
         fontWeight: 700,
     },
     progressBar: {
@@ -79,7 +79,7 @@ const CONFIG = {
         nameColor: "#0a0a0a",
         nameFontWeight: 700,
         categoryFontSize: 13,
-        categoryColor: "#B8D2D6",
+        categoryColor: "#ffffffff",
         categoryFontWeight: 400,
         amountFontSize: 16,
         amountColor: "#6366f1",
@@ -90,7 +90,7 @@ const CONFIG = {
     footer: {
         text: "Withdraw whenever you want.",
         fontSize: 13,
-        color: "#B8D2D6",
+        color: "#ffffffff",
         fontWeight: 400,
     },
     width: 480,

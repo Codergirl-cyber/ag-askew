@@ -44,10 +44,7 @@ export default function ScrollReveal({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.unobserve(el)
-        }
+        setIsVisible(entry.isIntersecting)
       },
       { threshold }
     )
@@ -56,18 +53,19 @@ export default function ScrollReveal({
   }, [animateOnMount, delay, threshold])
 
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : `translateY(${distance}px)`,
-        transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
-        willChange: 'opacity, transform',
-        ...style,
-      }}
-    >
-      {children}
+    <div ref={ref} className={className} style={style}>
+      <div
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : `translateY(${distance}px)`,
+          transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+          willChange: 'opacity, transform',
+          width: '100%',
+          height: '100%',
+        }}
+      >
+        {children}
+      </div>
     </div>
   )
 }
