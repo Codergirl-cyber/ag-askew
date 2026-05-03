@@ -134,6 +134,7 @@ export default function Footer() {
     return (
         <footer
             ref={rootRef}
+            className="max-md:!px-6 max-md:!py-10"
             style={{
                 width: "100%",
                 maxWidth: CONFIG.width,
@@ -161,6 +162,7 @@ export default function Footer() {
 
             {/* ── MAIN ROW ──────────────────────────────────────────────────────── */}
             <div
+                className="max-md:!flex-col max-md:!gap-12"
                 style={{
                     position: "relative",
                     zIndex: 1,
@@ -284,6 +286,7 @@ export default function Footer() {
 
                 {/* ── RIGHT: NAV COLUMNS ── */}
                 <div
+                    className="max-md:!w-full max-md:!justify-between max-md:!gap-8"
                     style={{
                         display: "flex",
                         gap: "80px",
