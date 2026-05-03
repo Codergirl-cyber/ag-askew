@@ -101,23 +101,22 @@ function App() {
           width: '100%', maxWidth: '1200px',
           display: 'flex', alignItems: 'center', gap: '60px',
           padding: '60px 40px 0',
-          flexWrap: 'wrap', justifyContent: 'center',
+          flexWrap: 'wrap', justifyContent: 'space-between',
           position: 'relative', zIndex: 1,
         }}>
-          <ScrollReveal delay={0} distance={40}>
+          <ScrollReveal delay={0} distance={40} style={{ flex: 1, minWidth: '300px', display: 'flex', justifyContent: 'flex-start' }}>
             <HoverImage
               src={profitsSection}
               alt="Before and After Askew Profits"
               style={{
-                width: '480px', maxWidth: '100%',
+                width: '100%', maxWidth: '500px',
                 borderRadius: '20px',
                 boxShadow: '0 12px 40px rgba(0,0,0,0.15)',
               }}
             />
           </ScrollReveal>
-          <ScrollReveal delay={150} distance={40}>
+          <ScrollReveal delay={150} distance={40} style={{ flex: 1, minWidth: '300px' }}>
             <div style={{
-              minWidth: '300px',
               display: 'flex', flexDirection: 'column', gap: '16px',
             }}>
               <p style={{
@@ -217,13 +216,13 @@ function App() {
         <div style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '60px', flexWrap: 'wrap',
-          alignItems: 'center', justifyContent: 'center',
+          alignItems: 'center', justifyContent: 'space-between',
           position: 'relative', zIndex: 1,
         }}>
           <ScrollReveal delay={0} distance={36} style={{ flex: '1', minWidth: '300px' }}>
             <Step01 />
           </ScrollReveal>
-          <ScrollReveal delay={200} distance={44} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+          <ScrollReveal delay={200} distance={44} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'flex-end' }}>
             <HoverImage
               src={step01Img}
               alt="Step 01 – Sign Up"
@@ -255,10 +254,10 @@ function App() {
         <div style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '60px', flexWrap: 'wrap',
-          alignItems: 'center', justifyContent: 'center',
+          alignItems: 'center', justifyContent: 'space-between',
           position: 'relative', zIndex: 1,
         }}>
-          <ScrollReveal delay={0} distance={44} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+          <ScrollReveal delay={0} distance={44} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'flex-start' }}>
             <HoverImage
               src={step02Img}
               alt="Step 02 – Connect Platforms"
@@ -293,13 +292,13 @@ function App() {
         <div style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '60px', flexWrap: 'wrap',
-          alignItems: 'center', justifyContent: 'center',
+          alignItems: 'center', justifyContent: 'space-between',
           position: 'relative', zIndex: 1,
         }}>
           <ScrollReveal delay={0} distance={36} style={{ flex: '1', minWidth: '300px' }}>
             <Step03 />
           </ScrollReveal>
-          <ScrollReveal delay={200} distance={44} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+          <ScrollReveal delay={200} distance={44} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'flex-end' }}>
             <HoverImage
               src={step03Img}
               alt="Step 03 – Cashback"
