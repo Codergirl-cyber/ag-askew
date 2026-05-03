@@ -138,6 +138,7 @@ export default function Footer() {
             style={{
                 width: "100%",
                 maxWidth: CONFIG.width,
+                margin: "0 auto",
                 minHeight: CONFIG.minHeight,
                 background: "transparent",
                 fontFamily: "'Sora', sans-serif",

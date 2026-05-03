@@ -128,6 +128,7 @@ export default function GetStartedHero() {
             style={{
                 width: "100%",
                 maxWidth: CONFIG.width,
+                margin: "0 auto",
                 minHeight: CONFIG.minHeight,
                 boxSizing: "border-box",
                 background: "transparent",
