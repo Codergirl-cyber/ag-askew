@@ -31,7 +31,7 @@ function App() {
       {/* ══════════════════════════════════════════════════════════════
           SECTION 01 — Hero  (animates on page load)
           ══════════════════════════════════════════════════════════════ */}
-      <section id="hero-section" style={{
+      <section id="hero-section" className="max-md:!pt-24 max-md:!pb-10 max-md:!gap-8" style={{
         position: 'relative', zIndex: 1,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         paddingTop: '120px', paddingBottom: '60px',
@@ -54,7 +54,7 @@ function App() {
         </ScrollReveal>
 
         <ScrollReveal animateOnMount delay={300} distance={50} duration={900} style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{
+          <div className="max-md:!px-4" style={{
             width: '100%', maxWidth: '1100px',
             display: 'flex', justifyContent: 'center',
             padding: '0 40px',
@@ -75,7 +75,7 @@ function App() {
       {/* ══════════════════════════════════════════════════════════════
           SECTION 02 — Marquee Rail + Profits  
           ══════════════════════════════════════════════════════════════ */}
-      <section style={{
+      <section className="max-md:!pb-10" style={{
         position: 'relative', zIndex: 1,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         paddingBottom: '80px',
@@ -97,7 +97,7 @@ function App() {
         </ScrollReveal>
 
         {/* Profits section — two-column (inspo 02) */}
-        <div style={{
+        <div className="max-md:!px-6 max-md:!py-10 max-md:!flex-col-reverse max-md:!gap-10" style={{
           width: '100%', maxWidth: '1200px',
           display: 'flex', alignItems: 'center', gap: '60px',
           padding: '60px 40px 0',
@@ -151,7 +151,7 @@ function App() {
       {/* ══════════════════════════════════════════════════════════════
           SECTION 03 — How It Works intro + Step 01
           ══════════════════════════════════════════════════════════════ */}
-      <section id="how-it-works" style={{
+      <section id="how-it-works" className="max-md:!py-10 max-md:!gap-16" style={{
         position: 'relative', zIndex: 1,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         paddingTop: '80px', paddingBottom: '80px',
@@ -166,7 +166,7 @@ function App() {
         }} />
 
         {/* "Three Steps" intro block (inspo 03 top) */}
-        <div style={{
+        <div className="max-md:!px-6 max-md:!flex-col max-md:!gap-8 max-md:!items-start" style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '60px', flexWrap: 'wrap',
           alignItems: 'center', justifyContent: 'space-between',
@@ -213,7 +213,7 @@ function App() {
         </div>
 
         {/* Step 01 block (inspo 03 bottom) */}
-        <div style={{
+        <div className="max-md:!px-6 max-md:!flex-col max-md:!gap-10" style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '60px', flexWrap: 'wrap',
           alignItems: 'center', justifyContent: 'space-between',
@@ -315,7 +315,7 @@ function App() {
       {/* ══════════════════════════════════════════════════════════════
           SECTION 06+07 — Dashboard (ClearView cards)
           ══════════════════════════════════════════════════════════════ */}
-      <section id="dashboard" style={{
+      <section id="dashboard" className="max-md:!py-10 max-md:!gap-8" style={{
         position: 'relative', zIndex: 1,
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         paddingTop: '80px', paddingBottom: '0px',
@@ -329,7 +329,7 @@ function App() {
         }} />
 
         {/* Header text (inspo 06 top) */}
-        <div style={{
+        <div className="max-md:!px-6 max-md:!flex-col max-md:!gap-6" style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '40px', flexWrap: 'wrap',
           alignItems: 'center', justifyContent: 'space-between',
@@ -371,7 +371,7 @@ function App() {
 
         {/* ClearView cards — inspo 06+07 */}
         <ScrollReveal delay={200} distance={40} duration={800} style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{
+          <div className="max-md:!px-2" style={{
             display: 'flex', justifyContent: 'center',
             padding: '0 20px',
           }}>
@@ -383,7 +383,7 @@ function App() {
       {/* ══════════════════════════════════════════════════════════════
           SECTION 08 — SignOff (Get Started CTA)
           ══════════════════════════════════════════════════════════════ */}
-      <ScrollReveal distance={36} duration={800} style={{
+      <ScrollReveal distance={36} duration={800} className="max-md:!px-2 max-md:!mt-10" style={{
         position: 'relative', zIndex: 1,
         display: 'flex', justifyContent: 'center',
         padding: '0px 20px',
