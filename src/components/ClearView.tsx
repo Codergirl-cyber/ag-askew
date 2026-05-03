@@ -303,6 +303,7 @@ export default function DashboardCards() {
     return (
         <div
             ref={rootRef}
+            className="max-md:!grid-cols-1 max-md:!grid-rows-none max-md:!gap-4"
             style={{
                 width: "100%",
                 maxWidth: l.width,
@@ -316,6 +317,7 @@ export default function DashboardCards() {
         >
             {/* CARD 1 — Monthly Performance */}
             <div
+                className="max-md:!col-auto max-md:!row-auto"
                 style={{
                     ...card,
                     background: `linear-gradient(135deg, ${c.card1.gradientFrom}, ${c.card1.gradientTo})`,
@@ -390,7 +392,7 @@ export default function DashboardCards() {
             </div>
 
             {/* CARD 2 — Live Balance */}
-            <div style={{ ...card, gridRow: "1", gridColumn: "2" }}>
+            <div className="max-md:!col-auto max-md:!row-auto" style={{ ...card, gridRow: "1", gridColumn: "2" }}>
                 <span style={indexStyle}>{c.card2.index}</span>
                 <span style={labelStyle}>{c.card2.label}</span>
 
@@ -532,7 +534,7 @@ export default function DashboardCards() {
             </div>
 
             {/* CARD 4 — Activity Feed */}
-            <div style={{ ...card, gridRow: "2", gridColumn: "1" }}>
+            <div className="max-md:!col-auto max-md:!row-auto" style={{ ...card, gridRow: "2", gridColumn: "1" }}>
                 <span style={indexStyle}>{c.card4.index}</span>
                 <span style={labelStyle}>{c.card4.label}</span>
 
@@ -656,6 +658,7 @@ export default function DashboardCards() {
 
             {/* RIGHT COLUMN BOTTOM */}
             <div
+                className="max-md:!col-auto max-md:!row-auto"
                 style={{
                     gridRow: "2",
                     gridColumn: "2",
