@@ -112,8 +112,5 @@ const gradientOverlay: React.CSSProperties = {
     inset: 0,
     pointerEvents: "none",
     zIndex: 2,
-    background: `
-        linear-gradient(to right, rgba(25,149,254,0.85), transparent 15%, transparent 85%, rgba(25,149,254,0.85)),
-        linear-gradient(to bottom, rgba(25,149,254,0.85), transparent 25%, transparent 75%, rgba(25,149,254,0.85))
-    `,
+    background: `linear-gradient(to right, rgba(25,149,254,0.85), transparent 15%, transparent 85%, rgba(25,149,254,0.85))`
 }
