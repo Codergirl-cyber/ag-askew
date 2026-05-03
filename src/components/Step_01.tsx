@@ -63,7 +63,7 @@ const CONFIG = {
     footer: {
         text: "No credit card. No deposit.",
         fontSize: 13,
-        color: "#B8D2D6",
+        color: "#ffffffff",
         fontWeight: 400,
     },
     width: 420,

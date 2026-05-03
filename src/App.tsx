@@ -189,7 +189,7 @@ function App() {
             }}>
               <p style={{
                 fontSize: 'clamp(14px, 1.5vw, 18px)', fontWeight: 400,
-                color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, margin: 0,
+                color: 'rgba(255, 255, 255, 1)', lineHeight: 1.6, margin: 0,
               }}>
                 Connect once and, earn forever. No monthly fees,
                 no deposits, no subscriptions. Just passive
