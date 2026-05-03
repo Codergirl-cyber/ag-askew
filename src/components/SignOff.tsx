@@ -123,6 +123,7 @@ export default function GetStartedHero() {
     return (
         <div
             ref={sectionRef}
+            className="max-md:!flex-col max-md:!px-4 max-md:!py-10 max-md:!text-center"
             style={{
                 width: "100%",
                 maxWidth: CONFIG.width,
@@ -152,6 +153,7 @@ export default function GetStartedHero() {
 
             {/* ── LEFT COLUMN ─────────────────────────────────────── */}
             <div
+                className="max-md:!w-full max-md:!items-center"
                 style={{
                     flex: "0 0 48%",
                     display: "flex",
@@ -210,6 +212,7 @@ export default function GetStartedHero() {
 
             {/* ── RIGHT COLUMN ────────────────────────────────────── */}
             <div
+                className="max-md:!w-full max-md:!items-center max-md:!mt-8"
                 style={{
                     flex: "1",
                     display: "flex",
@@ -236,6 +239,7 @@ export default function GetStartedHero() {
                 {/* Badges + CTA */}
                 <div
                     data-reveal
+                    className="max-md:!items-center max-md:!mt-4"
                     style={{
                         display: "flex",
                         flexDirection: "column",
