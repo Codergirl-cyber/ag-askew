@@ -226,19 +226,21 @@ export default function GetStartedHero() {
                     gap: "40px",
                 }}
             >
-                {/* SVG Illustration */}
+                {/* Image Container */}
                 <div
                     data-reveal
                     style={{
                         width: "100%",
                         display: "flex",
                         justifyContent: "center",
+                        // ↓ ADJUST THIS TO MOVE ONLY THE IMAGE LEFT OR RIGHT ↓
+                        transform: "translateX(196px)",
                     }}
                 >
-                    <HoverImage 
-                        src={replacementImg} 
-                        alt="Cashback Dashboard Illustration" 
-                        style={{ width: "100%", maxWidth: "480px", borderRadius: "24px" }} 
+                    <HoverImage
+                        src={replacementImg}
+                        alt="Cashback Dashboard Illustration"
+                        style={{ width: "100%", maxWidth: "480px", borderRadius: "24px" }}
                     />
                 </div>
 
@@ -251,6 +253,8 @@ export default function GetStartedHero() {
                         flexDirection: "column",
                         alignItems: "center",
                         gap: "16px",
+                        // ↓ ADJUST THIS TO MOVE ONLY THE BADGES & CTA BUTTON LEFT OR RIGHT ↓
+                        transform: "translateX(136px)",
                     }}
                 >
                     {/* Trust badges */}
@@ -376,4 +380,4 @@ export default function GetStartedHero() {
         </div>
     )
 }
-
+
