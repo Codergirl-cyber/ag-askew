@@ -43,7 +43,7 @@ const CONFIG = {
     progressBar: {
         height: 4,
         borderRadius: 99,
-        background: "linear-gradient(to right, #6366f1, #a855f7)",
+        background: "linear-gradient(to right, #00ff3cff, #00ff48ff)",
         trackColor: "#e8e8f0",
     },
     platforms: [
@@ -82,7 +82,7 @@ const CONFIG = {
         categoryColor: "#ffffffff",
         categoryFontWeight: 400,
         amountFontSize: 16,
-        amountColor: "#6366f1",
+        amountColor: "#00ff48ff",
         amountFontWeight: 700,
         dividerColor: "#e8e8e8",
         rowGap: 20,

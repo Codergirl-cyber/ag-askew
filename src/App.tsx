@@ -389,7 +389,7 @@ function App() {
         padding: '0px 20px',
       }}>
         <div style={{
-          width: '100%', maxWidth: '1200px',
+          width: '100%', maxWidth: '1200px', margin: '0 auto',
         }}>
           <SignOff />
         </div>
@@ -404,7 +404,7 @@ function App() {
         padding: '0px 20px',
       }}>
         <section id="get-started" style={{
-          width: '100%', maxWidth: '1200px',
+          width: '100%', maxWidth: '1200px', margin: '0 auto',
         }}>
           <Footer />
         </section>
