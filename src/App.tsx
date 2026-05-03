@@ -360,7 +360,7 @@ function App() {
           <ScrollReveal delay={100} distance={28} style={{ flex: 1, minWidth: '300px', maxWidth: '480px' }}>
             <p style={{
               fontSize: 'clamp(14px, 1.5vw, 18px)', fontWeight: 400,
-              color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, margin: 0,
+              color: 'rgba(255, 255, 255, 1)', lineHeight: 1.6, margin: 0,
             }}>
               Track cashback, monitor activity across
               every platform, and withdraw all from a

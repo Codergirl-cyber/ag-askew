@@ -31,8 +31,8 @@ const CONFIG = {
     accentBlue: "#6aaeff",
     accentGlow: "rgba(106,174,255,0.35)",
     textPrimary: "#ffffff",
-    textMuted: "rgba(255,255,255,0.45)",
-    textBody: "rgba(255,255,255,0.78)",
+    textMuted: "rgba(255, 255, 255, 0.77)",
+    textBody: "rgba(255, 255, 255, 1)",
     badgeDot: "#6aaeff",
 
     // Animation
