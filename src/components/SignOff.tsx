@@ -136,6 +136,7 @@ export default function GetStartedHero() {
                 padding: `${CONFIG.paddingY} ${CONFIG.paddingX}`,
                 position: "relative",
                 overflow: "hidden",
+                paddingBottom: "48px",  // ← add here
             }}
         >
             {/* Subtle noise grain overlay */}
@@ -217,7 +218,7 @@ export default function GetStartedHero() {
                     flex: "1",
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "flex-end",
+                    alignItems: "center",
                     justifyContent: "space-between",
                     position: "relative",
                     zIndex: 1,
@@ -243,7 +244,7 @@ export default function GetStartedHero() {
                     style={{
                         display: "flex",
                         flexDirection: "column",
-                        alignItems: "flex-end",
+                        alignItems: "center",
                         gap: "16px",
                     }}
                 >
