@@ -50,6 +50,7 @@ export default function NavbarScroll() {
 
   return (
     <nav
+      className="max-md:!px-6 max-md:!py-3"
       style={{
         position: "fixed",
         top: 0,
@@ -115,6 +116,7 @@ export default function NavbarScroll() {
           return (
           <span
             key={link.id}
+            className="max-md:!hidden"
             onClick={() => scrollToSection(link.id)}
             style={{
               cursor: "pointer",
