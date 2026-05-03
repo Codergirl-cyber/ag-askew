@@ -290,7 +290,7 @@ export default function Footer() {
                         alignItems: "flex-start",
                     }}
                 >
-                    {CONFIG.nav.map((col, ci) => (
+                    {CONFIG.nav.map((col) => (
                         <div
                             key={col.heading}
                             data-ft-reveal

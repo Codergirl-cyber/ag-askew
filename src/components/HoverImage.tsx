@@ -1,4 +1,5 @@
-import React, { ImgHTMLAttributes, useState } from 'react'
+import { useState } from 'react'
+import type { ImgHTMLAttributes } from 'react'
 
 export default function HoverImage(props: ImgHTMLAttributes<HTMLImageElement>) {
   const [isHovered, setIsHovered] = useState(false)
