@@ -264,579 +264,117 @@ export default function DashboardCards() {
     const triggered = useIntersect(rootRef as React.RefObject<HTMLElement>, 0.3)
 
     const c = CONFIG
-    const l = c.layout
-    const col = c.colors
     const sora = "'Sora', sans-serif"
     const dur = c.card1.animationDuration
 
     const total = useCountUp(c.card1.amount, dur, triggered)
     const live = useCountUp(c.card2.amount, dur, triggered)
-    const liveProgress = (live / c.card2.amount) * 100
-
-    const card: React.CSSProperties = {
-        background: col.cardBg,
-        border: `1px solid ${col.cardBorder}`,
-        borderRadius: l.borderRadius,
-        padding: l.cardPadding,
-        fontFamily: sora,
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-    }
-
-    const indexStyle: React.CSSProperties = {
-        fontSize: 11,
-        color: col.textSecondary,
-        fontWeight: 500,
-        fontFamily: sora,
-        letterSpacing: "0.05em",
-    }
-
-    const labelStyle: React.CSSProperties = {
-        fontSize: 11,
-        color: col.textSecondary,
-        fontWeight: 600,
-        letterSpacing: "0.1em",
-        fontFamily: sora,
-    }
 
     return (
         <div
             ref={rootRef}
-            className="max-md:!grid-cols-1 max-md:!grid-rows-none max-md:!gap-4"
             style={{
                 width: "100%",
-                maxWidth: l.width,
-                display: "grid",
-                gridTemplateColumns: l.columns,
-                gridTemplateRows: "auto auto",
-                gap: l.gap,
+                maxWidth: 1000,
+                margin: "0 auto",
+                display: "flex",
+                flexDirection: "column",
                 fontFamily: sora,
-                background: "transparent",
+                color: "#ffffff",
+                padding: "20px 0",
             }}
         >
-            {/* CARD 1 — Monthly Performance */}
-            <div
-                className="max-md:!col-auto max-md:!row-auto"
-                style={{
-                    ...card,
-                    background: `linear-gradient(135deg, ${c.card1.gradientFrom}, ${c.card1.gradientTo})`,
-                    border: "none",
-                    gridRow: "1",
-                    gridColumn: "1",
-                    justifyContent: "space-between",
-                    minHeight: c.card1.minHeight,
-                }}
-            >
-                <div
-                    style={{ display: "flex", flexDirection: "column", gap: 6 }}
-                >
-                    <span
-                        style={{
-                            ...indexStyle,
-                            color: "rgba(255,255,255,0.6)",
-                        }}
-                    >
-                        {c.card1.index}
-                    </span>
-                    <span
-                        style={{
-                            ...labelStyle,
-                            color: "rgba(255,255,255,0.6)",
-                        }}
-                    >
-                        {c.card1.label}
-                    </span>
-                    <div
-                        style={{
-                            fontSize: 52,
-                            fontWeight: 800,
-                            color: "#fff",
-                            lineHeight: 1,
-                            fontFamily: sora,
-                            marginTop: 4,
-                        }}
-                    >
-                        ${fmt(total)}
-                    </div>
-                    <span
-                        style={{
-                            fontSize: 13,
-                            color: "#86efac",
-                            fontWeight: 600,
-                            fontFamily: sora,
-                        }}
-                    >
-                        {c.card1.growth}
-                    </span>
-                </div>
-
-                <div style={{ margin: "8px 0" }}>
-                    <AnimatedGraph triggered={triggered} duration={dur} />
-                </div>
-
-                <p
-                    style={{
-                        fontSize: 13,
-                        color: "rgba(255,255,255,0.85)",
-                        margin: 0,
-                        fontFamily: sora,
-                        lineHeight: 1.5,
-                    }}
-                >
-                    <strong style={{ color: "#fff", fontWeight: 700 }}>
-                        {c.card1.footerBold}
-                    </strong>
-                    {c.card1.footerNormal}
-                </p>
-            </div>
-
-            {/* CARD 2 — Live Balance */}
-            <div className="max-md:!col-auto max-md:!row-auto" style={{ ...card, gridRow: "1", gridColumn: "2" }}>
-                <span style={indexStyle}>{c.card2.index}</span>
-                <span style={labelStyle}>{c.card2.label}</span>
-
-                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <span
-                        style={{
-                            width: 8,
-                            height: 8,
-                            borderRadius: "50%",
-                            background: c.card2.liveDot,
-                            display: "block",
-                            flexShrink: 0,
-                        }}
-                    />
-                    <span
-                        style={{
-                            fontSize: 13,
-                            color: c.card2.liveDot,
-                            fontWeight: 600,
-                            fontFamily: sora,
-                        }}
-                    >
-                        {c.card2.liveText}
-                    </span>
-                </div>
-
-                <div
-                    style={{
-                        fontSize: 48,
-                        fontWeight: 800,
-                        color: col.textPrimary,
-                        lineHeight: 1,
-                        fontFamily: sora,
-                    }}
-                >
-                    ${fmt(live)}
-                </div>
-
-                <span
-                    style={{
-                        fontSize: 12,
-                        color: col.textSecondary,
-                        fontFamily: sora,
-                    }}
-                >
-                    {c.card2.updatedText}
-                </span>
-
-                <div
-                    style={{
-                        width: "100%",
-                        height: 4,
-                        borderRadius: 99,
-                        background: c.card2.progressTrack,
-                        overflow: "hidden",
-                    }}
-                >
-                    <div
-                        style={{
-                            height: "100%",
-                            width: `${liveProgress}%`,
-                            background: c.card2.progressColor,
-                            borderRadius: 99,
-                            transition: "width 0.05s linear",
-                        }}
-                    />
-                </div>
-
-                <p
-                    style={{
-                        fontSize: 13,
-                        color: col.textSecondary,
-                        margin: 0,
-                        lineHeight: 1.5,
-                        fontFamily: sora,
-                    }}
-                >
-                    {c.card2.description}
-                </p>
-
-                <div
-                    style={{
-                        display: "grid",
-                        gridTemplateColumns: "1fr 1fr",
-                        gap: 8,
-                        marginTop: 4,
-                    }}
-                >
-                    {[
-                        {
-                            label: c.card2.statsLabel1,
-                            value: c.card2.statsValue1,
-                        },
-                        {
-                            label: c.card2.statsLabel2,
-                            value: c.card2.statsValue2,
-                        },
-                        {
-                            label: c.card2.statsLabel3,
-                            value: c.card2.statsValue3,
-                        },
-                        {
-                            label: c.card2.statsLabel4,
-                            value: c.card2.statsValue4,
-                        },
-                    ].map((s, i) => (
-                        <div
-                            key={i}
-                            style={{
-                                background: col.statsBg,
-                                borderRadius: 10,
-                                padding: "10px 12px",
-                            }}
-                        >
-                            <div
-                                style={{
-                                    fontSize: 11,
-                                    color: col.textSecondary,
-                                    fontWeight: 500,
-                                    fontFamily: sora,
-                                    marginBottom: 2,
-                                }}
-                            >
-                                {s.label}
-                            </div>
-                            <div
-                                style={{
-                                    fontSize: 15,
-                                    fontWeight: 700,
-                                    color: col.textPrimary,
-                                    fontFamily: sora,
-                                }}
-                            >
-                                {s.value}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* CARD 4 — Activity Feed */}
-            <div className="max-md:!col-auto max-md:!row-auto" style={{ ...card, gridRow: "2", gridColumn: "1" }}>
-                <span style={indexStyle}>{c.card4.index}</span>
-                <span style={labelStyle}>{c.card4.label}</span>
-
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                    }}
-                >
-                    <span
-                        style={{
-                            fontSize: 16,
-                            fontWeight: 700,
-                            color: col.textPrimary,
-                            fontFamily: sora,
-                        }}
-                    >
-                        {c.card4.heading}
-                    </span>
-                    <span
-                        style={{
-                            fontSize: 13,
-                            color: col.accentColor,
-                            fontWeight: 600,
-                            fontFamily: sora,
-                            cursor: "pointer",
-                        }}
-                    >
-                        {c.card4.viewAll}
-                    </span>
-                </div>
-
-                <div
-                    style={{ display: "flex", flexDirection: "column", gap: 0 }}
-                >
-                    {c.card4.activities.map((a, i) => (
-                        <div key={i}>
-                            <div
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "space-between",
-                                    padding: "12px 0",
-                                }}
-                            >
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: 10,
-                                    }}
-                                >
-                                    <span
-                                        style={{
-                                            width: 8,
-                                            height: 8,
-                                            borderRadius: "50%",
-                                            background: a.dot,
-                                            display: "block",
-                                            flexShrink: 0,
-                                        }}
-                                    />
-                                    <div>
-                                        <div
-                                            style={{
-                                                fontSize: 14,
-                                                fontWeight: 600,
-                                                color: col.textPrimary,
-                                                fontFamily: sora,
-                                            }}
-                                        >
-                                            {a.title}
-                                        </div>
-                                        <div
-                                            style={{
-                                                fontSize: 12,
-                                                color: col.textSecondary,
-                                                fontFamily: sora,
-                                            }}
-                                        >
-                                            {a.time}
-                                        </div>
-                                    </div>
-                                </div>
-                                <span
-                                    style={{
-                                        fontSize: 14,
-                                        fontWeight: 700,
-                                        color: col.accentColor,
-                                        fontFamily: sora,
-                                    }}
-                                >
-                                    {a.amount}
-                                </span>
-                            </div>
-                            {i < c.card4.activities.length - 1 && (
-                                <div
-                                    style={{ height: 1, background: "#f0f0f4" }}
-                                />
-                            )}
-                        </div>
-                    ))}
-                </div>
-
-                <p
-                    style={{
-                        fontSize: 13,
-                        color: col.textSecondary,
-                        margin: 0,
-                        lineHeight: 1.5,
-                        fontFamily: sora,
-                    }}
-                >
-                    <strong style={{ color: col.textPrimary, fontWeight: 700 }}>
-                        {c.card4.footerBold}
-                    </strong>
-                    {c.card4.footerNormal}
-                </p>
-            </div>
-
-            {/* RIGHT COLUMN BOTTOM */}
-            <div
-                className="max-md:!col-auto max-md:!row-auto"
-                style={{
-                    gridRow: "2",
-                    gridColumn: "2",
+            <div className="max-md:!flex-col" style={{ display: "flex", gap: "60px" }}>
+                {/* Left Side: Main Analytics */}
+                <div style={{
+                    flex: 1.2,
                     display: "flex",
                     flexDirection: "column",
-                    gap: l.gap,
-                }}
-            >
-                {/* CARD 3 — Referral Engine */}
-                <div style={{ ...card }}>
-                    <span style={indexStyle}>{c.card3.index}</span>
-                    <span style={labelStyle}>{c.card3.label}</span>
-
-                    <div
-                        style={{
-                            fontSize: 44,
-                            fontWeight: 800,
-                            color: col.textPrimary,
-                            lineHeight: 1,
-                            fontFamily: sora,
-                        }}
-                    >
-                        {c.card3.rate}
-                    </div>
-                    <span
-                        style={{
-                            fontSize: 12,
-                            color: col.textSecondary,
-                            fontFamily: sora,
-                            marginTop: -6,
-                        }}
-                    >
-                        {c.card3.rateLabel}
-                    </span>
-
-                    <div style={{ display: "flex", gap: 8 }}>
-                        {[c.card3.btn1, c.card3.btn2].map((btn, i) => (
-                            <button
-                                key={i}
-                                style={{
-                                    padding: "8px 16px",
-                                    background: "#f0f0f8",
-                                    border: "none",
-                                    borderRadius: 20,
-                                    fontSize: 13,
-                                    fontWeight: 600,
-                                    color: "#444",
-                                    fontFamily: sora,
-                                    cursor: "pointer",
-                                }}
-                            >
-                                {btn}
-                            </button>
-                        ))}
+                    gap: "32px",
+                }}>
+                    <div>
+                        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", fontWeight: 600, marginBottom: 8, letterSpacing: "0.05em" }}>MONTHLY PERFORMANCE</div>
+                        <div style={{ fontSize: 64, fontWeight: 800, color: "#ffffff", lineHeight: 1, letterSpacing: "-2px" }}>
+                            ${fmt(total)}
+                        </div>
+                        <div style={{ fontSize: 15, color: "#34d399", fontWeight: 600, marginTop: 12, display: "flex", alignItems: "center", gap: 6 }}>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            {c.card1.growth}
+                        </div>
                     </div>
 
-                    <p
-                        style={{
-                            fontSize: 13,
-                            color: col.textSecondary,
-                            margin: 0,
-                            lineHeight: 1.5,
-                            fontFamily: sora,
-                        }}
-                    >
-                        <strong
-                            style={{ color: col.textPrimary, fontWeight: 700 }}
-                        >
-                            {c.card3.descBold}
-                        </strong>
-                        {c.card3.descNormal}
-                    </p>
+                    <div style={{
+                        width: "100%",
+                        height: 200,
+                        position: "relative",
+                        overflow: "hidden",
+                        display: "flex",
+                        alignItems: "flex-end",
+                    }}>
+                        {/* A very subtle underlying grid or just the graph */}
+                        <AnimatedGraph triggered={triggered} duration={dur} />
+                    </div>
 
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: 6,
-                            borderTop: "1px solid #f0f0f4",
-                            paddingTop: 10,
-                        }}
-                    >
-                        {c.card3.extras.map((e, i) => (
-                            <div
-                                key={i}
-                                style={{
-                                    display: "flex",
-                                    justifyContent: "space-between",
-                                }}
-                            >
-                                <span
-                                    style={{
-                                        fontSize: 13,
-                                        color: col.textSecondary,
-                                        fontFamily: sora,
-                                    }}
-                                >
-                                    {e.label}
-                                </span>
-                                <span
-                                    style={{
-                                        fontSize: 13,
-                                        fontWeight: 700,
-                                        color: col.textPrimary,
-                                        fontFamily: sora,
-                                    }}
-                                >
-                                    {e.value}
-                                </span>
+                    <div className="max-sm:!grid-cols-2" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, paddingTop: 32, borderTop: "1px solid rgba(255,255,255,0.15)" }}>
+                        {[
+                            { label: c.card2.statsLabel1, value: c.card2.statsValue1 },
+                            { label: c.card2.statsLabel2, value: c.card2.statsValue2 },
+                            { label: c.card2.statsLabel3, value: c.card2.statsValue3 },
+                            { label: c.card2.statsLabel4, value: c.card2.statsValue4 },
+                        ].map((s, i) => (
+                            <div key={i}>
+                                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", fontWeight: 600, marginBottom: 8 }}>{s.label}</div>
+                                <div style={{ fontSize: 22, fontWeight: 700, color: "#ffffff" }}>{s.value}</div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                {/* CARD 5 — Withdrawals */}
-                <div style={{ ...card }}>
-                    <span style={indexStyle}>{c.card5.index}</span>
-                    <span style={labelStyle}>{c.card5.label}</span>
-
-                    <div
-                        style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: 8,
-                            background: c.card5.badgeBg,
-                            borderRadius: 20,
-                            padding: "8px 16px",
-                            alignSelf: "flex-start",
-                        }}
-                    >
-                        <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                        >
-                            <circle
-                                cx="12"
-                                cy="12"
-                                r="10"
-                                fill={c.card5.badgeColor}
-                            />
-                            <path
-                                d="M8 12l3 3 5-5"
-                                stroke="#fff"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-                        <span
-                            style={{
-                                fontSize: 14,
-                                fontWeight: 700,
-                                color: c.card5.badgeColor,
-                                fontFamily: sora,
-                            }}
-                        >
-                            {c.card5.badgeText}
-                        </span>
+                {/* Right Side: Sidebar */}
+                <div style={{
+                    flex: 0.8,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "60px",
+                }}>
+                    <div>
+                        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", fontWeight: 600, marginBottom: 8, letterSpacing: "0.05em" }}>LIVE CASHBACK</div>
+                        <div style={{ fontSize: 44, fontWeight: 800, color: "#ffffff", lineHeight: 1, letterSpacing: "-1px" }}>
+                            ${fmt(live)}
+                        </div>
+                        <div style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", marginTop: 12 }}>{c.card2.updatedText}</div>
                     </div>
 
-                    <p
-                        style={{
-                            fontSize: 13,
-                            color: col.textSecondary,
-                            margin: 0,
-                            lineHeight: 1.5,
-                            fontFamily: sora,
-                        }}
-                    >
-                        <strong
-                            style={{ color: col.textPrimary, fontWeight: 700 }}
-                        >
-                            {c.card5.descBold}
-                        </strong>
-                        {c.card5.descNormal}
-                    </p>
+                    <div>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
+                            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", fontWeight: 600, letterSpacing: "0.05em" }}>RECENT ACTIVITY</div>
+                            <div style={{ fontSize: 13, color: "#ffffff", fontWeight: 600, cursor: "pointer", opacity: 0.8 }}>{c.card4.viewAll}</div>
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+                            {c.card4.activities.map((a, i) => (
+                                <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                    <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                                        <div style={{ width: 8, height: 8, borderRadius: 4, background: a.dot }} />
+                                        <div>
+                                            <div style={{ fontSize: 15, fontWeight: 600, color: "#ffffff", marginBottom: 4 }}>{a.title}</div>
+                                            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)" }}>{a.time}</div>
+                                        </div>
+                                    </div>
+                                    <div style={{ fontSize: 15, fontWeight: 700, color: a.dot }}>{a.amount}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", fontWeight: 600, letterSpacing: "0.05em", marginBottom: 16 }}>REFERRAL ENGINE</div>
+                        <div style={{ fontSize: 52, fontWeight: 800, color: "#ffffff", lineHeight: 1, letterSpacing: "-1px" }}>{c.card3.rate}</div>
+                        <div style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", marginTop: 8, marginBottom: 24 }}>{c.card3.rateLabel}</div>
+                        <div style={{ display: "flex", gap: 12 }}>
+                            <button style={{ flex: 1, padding: "14px 0", background: "#ffffff", color: "#111827", border: "none", borderRadius: 8, fontSize: 14, fontWeight: 700, cursor: "pointer" }}>{c.card3.btn1}</button>
+                            <button style={{ flex: 1, padding: "14px 0", background: "transparent", color: "#ffffff", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>{c.card3.btn2}</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

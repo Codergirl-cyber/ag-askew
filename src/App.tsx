@@ -14,9 +14,7 @@ import HoverImage from './components/HoverImage'
 // Asset imports
 import heroDashboard from './assets/fg-assets/Hero Dashboard.png'
 import profitsSection from './assets/fg-assets/Profits Section.png'
-import step01Img from './assets/fg-assets/Step 01 How It Works.png'
-import step02Img from './assets/fg-assets/Step 02 How It Works.png'
-import step03Img from './assets/fg-assets/Step 03 How It Works.png'
+
 
 import cloud1 from './assets/bg-assets/cloud1.png'
 import cloud2 from './assets/bg-assets/cloud2.png'
@@ -216,22 +214,11 @@ function App() {
         <div className="max-md:!px-6 max-md:!flex-col max-md:!gap-10" style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '60px', flexWrap: 'wrap',
-          alignItems: 'center', justifyContent: 'space-between',
+          alignItems: 'center', justifyContent: 'center',
           position: 'relative', zIndex: 1,
         }}>
-          <ScrollReveal delay={0} distance={36} style={{ flex: '1', minWidth: '300px' }}>
+          <ScrollReveal delay={0} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
             <Step01 />
-          </ScrollReveal>
-          <ScrollReveal delay={200} distance={44} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'flex-end' }}>
-            <HoverImage
-              src={step01Img}
-              alt="Step 01 – Sign Up"
-              style={{
-                width: '100%', maxWidth: '500px',
-                borderRadius: '20px',
-                boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
-              }}
-            />
           </ScrollReveal>
         </div>
       </section>
@@ -254,21 +241,10 @@ function App() {
         <div style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '60px', flexWrap: 'wrap',
-          alignItems: 'center', justifyContent: 'space-between',
+          alignItems: 'center', justifyContent: 'center',
           position: 'relative', zIndex: 1,
         }}>
-          <ScrollReveal delay={0} distance={44} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'flex-start' }}>
-            <HoverImage
-              src={step02Img}
-              alt="Step 02 – Connect Platforms"
-              style={{
-                width: '100%', maxWidth: '500px',
-                borderRadius: '20px',
-                boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
-              }}
-            />
-          </ScrollReveal>
-          <ScrollReveal delay={200} distance={36} style={{ flex: '1', minWidth: '300px' }}>
+          <ScrollReveal delay={200} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
             <Step02 />
           </ScrollReveal>
         </div>
@@ -292,22 +268,11 @@ function App() {
         <div style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '60px', flexWrap: 'wrap',
-          alignItems: 'center', justifyContent: 'space-between',
+          alignItems: 'center', justifyContent: 'center',
           position: 'relative', zIndex: 1,
         }}>
-          <ScrollReveal delay={0} distance={36} style={{ flex: '1', minWidth: '300px' }}>
+          <ScrollReveal delay={0} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
             <Step03 />
-          </ScrollReveal>
-          <ScrollReveal delay={200} distance={44} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'flex-end' }}>
-            <HoverImage
-              src={step03Img}
-              alt="Step 03 – Cashback"
-              style={{
-                width: '100%', maxWidth: '500px',
-                borderRadius: '20px',
-                boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
-              }}
-            />
           </ScrollReveal>
         </div>
       </section>
