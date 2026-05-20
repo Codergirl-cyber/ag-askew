@@ -8,7 +8,7 @@ const CONFIG = {
     step: {
         label: "STEP 03",
         fontSize: 13,
-        color: "#B8D2D6",
+        color: "#ffffff",
         fontWeight: 600,
         letterSpacing: "0.08em",
     },
@@ -43,8 +43,8 @@ const CONFIG = {
     progressBar: {
         height: 4,
         borderRadius: 99,
-        background: "linear-gradient(to right, #00ff3cff, #00ff48ff)",
-        trackColor: "#e8e8f0",
+        background: "linear-gradient(to right, #22c55e, #16a34a)",
+        trackColor: "rgba(255, 255, 255, 0.3)",
     },
     platforms: [
         {
@@ -82,9 +82,9 @@ const CONFIG = {
         categoryColor: "#ffffffff",
         categoryFontWeight: 400,
         amountFontSize: 16,
-        amountColor: "#00ff48ff",
+        amountColor: "#22c55e",
         amountFontWeight: 700,
-        dividerColor: "#e8e8e8",
+        dividerColor: "rgba(255, 255, 255, 0.3)",
         rowGap: 20,
     },
     footer: {

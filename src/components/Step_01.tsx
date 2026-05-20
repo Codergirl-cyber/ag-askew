@@ -8,7 +8,7 @@ const CONFIG = {
     step: {
         label: "STEP 01",
         fontSize: 13,
-        color: "#B8D2D6",
+        color: "#ffffff",
         fontWeight: 600,
         letterSpacing: "0.08em",
     },
@@ -34,8 +34,8 @@ const CONFIG = {
         activeBg: "#ffffff",
         inactiveBg: "transparent",
         activeColor: "#0a0a0a",
-        inactiveColor: "#aaaaaa",
-        containerBg: "#f0f1f5",
+        inactiveColor: "#ffffff",
+        containerBg: "rgba(255, 255, 255, 0.2)",
         borderRadius: 14,
         fontSize: 15,
         fontWeight: 600,
@@ -45,7 +45,7 @@ const CONFIG = {
         fontSize: 15,
         color: "#0a0a0a",
         placeholderColor: "#aaaaaa",
-        borderColor: "#e0e0e0",
+        borderColor: "transparent",
         borderRadius: 14,
         bg: "#ffffff",
         iconColor: "#aaaaaa",
@@ -66,7 +66,7 @@ const CONFIG = {
         color: "#ffffffff",
         fontWeight: 400,
     },
-    width: 420,
+    width: 480,
     gap: 16,
 }
 
