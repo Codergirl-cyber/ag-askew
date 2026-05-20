@@ -75,7 +75,6 @@ const container: React.CSSProperties = {
 // scrolling track
 const track: React.CSSProperties = {
     display: "flex",
-    gap: "40px",
     width: "max-content",
     alignItems: "center",
 }
@@ -85,6 +84,7 @@ const item: React.CSSProperties = {
     display: "flex",
     alignItems: "center",
     gap: "10px",
+    paddingRight: "40px",
     whiteSpace: "nowrap",
 }
 

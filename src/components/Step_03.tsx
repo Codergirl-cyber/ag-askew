@@ -82,7 +82,7 @@ const CONFIG = {
         categoryColor: "#ffffffff",
         categoryFontWeight: 400,
         amountFontSize: 16,
-        amountColor: "#22c55e",
+        amountColor: "#15803d",
         amountFontWeight: 700,
         dividerColor: "rgba(255, 255, 255, 0.3)",
         rowGap: 20,
