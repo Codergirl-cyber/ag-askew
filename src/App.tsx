@@ -14,6 +14,9 @@ import HoverImage from './components/HoverImage'
 // Asset imports
 import heroDashboard from './assets/fg-assets/Hero Dashboard.png'
 import profitsSection from './assets/fg-assets/Profits Section.png'
+import step01Img from './assets/fg-assets/Step 01 How It Works.png'
+import step02Img from './assets/fg-assets/Step 02 How It Works.png'
+import step03Img from './assets/fg-assets/Step 03 How It Works.png'
 
 
 import cloud1 from './assets/bg-assets/cloud1.png'
@@ -214,11 +217,22 @@ function App() {
         <div className="max-md:!px-6 max-md:!flex-col max-md:!gap-10" style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '60px', flexWrap: 'wrap',
-          alignItems: 'center', justifyContent: 'center',
+          alignItems: 'center', justifyContent: 'space-between',
           position: 'relative', zIndex: 1,
         }}>
-          <ScrollReveal delay={0} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+          <ScrollReveal delay={0} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'flex-start' }}>
             <Step01 />
+          </ScrollReveal>
+          <ScrollReveal delay={150} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+            <HoverImage 
+              src={step01Img} 
+              alt="Step 01 How It Works" 
+              style={{
+                width: '100%', maxWidth: '500px',
+                borderRadius: '24px',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
+              }}
+            />
           </ScrollReveal>
         </div>
       </section>
@@ -238,13 +252,24 @@ function App() {
           width: '35%', opacity: 0.35, zIndex: 0,
         }} />
 
-        <div style={{
+        <div className="max-md:!px-6 max-md:!flex-col-reverse max-md:!gap-10" style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '60px', flexWrap: 'wrap',
-          alignItems: 'center', justifyContent: 'center',
+          alignItems: 'center', justifyContent: 'space-between',
           position: 'relative', zIndex: 1,
         }}>
-          <ScrollReveal delay={200} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+          <ScrollReveal delay={0} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+            <HoverImage 
+              src={step02Img} 
+              alt="Step 02 How It Works" 
+              style={{
+                width: '100%', maxWidth: '500px',
+                borderRadius: '24px',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
+              }}
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={200} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'flex-end' }}>
             <Step02 />
           </ScrollReveal>
         </div>
@@ -265,14 +290,25 @@ function App() {
           width: '45%', opacity: 0.4, zIndex: 0,
         }} />
 
-        <div style={{
+        <div className="max-md:!px-6 max-md:!flex-col max-md:!gap-10" style={{
           width: '100%', maxWidth: '1200px', padding: '0 40px',
           display: 'flex', gap: '60px', flexWrap: 'wrap',
-          alignItems: 'center', justifyContent: 'center',
+          alignItems: 'center', justifyContent: 'space-between',
           position: 'relative', zIndex: 1,
         }}>
-          <ScrollReveal delay={0} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+          <ScrollReveal delay={0} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'flex-start' }}>
             <Step03 />
+          </ScrollReveal>
+          <ScrollReveal delay={150} distance={36} style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+            <HoverImage 
+              src={step03Img} 
+              alt="Step 03 How It Works" 
+              style={{
+                width: '100%', maxWidth: '500px',
+                borderRadius: '24px',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
+              }}
+            />
           </ScrollReveal>
         </div>
       </section>
