@@ -297,7 +297,7 @@ export default function DashboardCards() {
                         <div style={{ fontSize: 64, fontWeight: 800, color: "#ffffff", lineHeight: 1, letterSpacing: "-2px" }}>
                             ${fmt(total)}
                         </div>
-                        <div style={{ fontSize: 15, color: "#34d399", fontWeight: 600, marginTop: 12, display: "flex", alignItems: "center", gap: 6 }}>
+                        <div style={{ fontSize: 15, color: "#16a34a", fontWeight: 600, marginTop: 12, display: "flex", alignItems: "center", gap: 6 }}>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                             {c.card1.growth}
                         </div>
