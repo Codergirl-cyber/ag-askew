@@ -307,7 +307,7 @@ export default function DashboardCards() {
                         width: "100%",
                         height: 200,
                         position: "relative",
-                        overflow: "hidden",
+                        overflow: "visible",
                         display: "flex",
                         alignItems: "flex-end",
                     }}>
