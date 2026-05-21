@@ -1,7 +1,6 @@
 import * as React from "react"
-import { motion } from "framer-motion"
+import { useRef, useEffect, useLayoutEffect } from "react"
 
-// platform data
 const PLATFORMS = [
     { name: "Roobet", color: "#FF2D55" },
     { name: "Bybit", color: "#F7A600" },
@@ -21,48 +20,106 @@ const PLATFORMS = [
     { name: "Bet365", color: "#008000" },
 ]
 
-// duplicate for seamless loop
-const ITEMS = [...PLATFORMS, ...PLATFORMS]
+// ~35s per full platform list (matches prior design)
+const SCROLL_PX_PER_SEC = 85
+const LOOP_COPIES = 3
+
+function PlatformItems({ copyIndex }: { copyIndex: number }) {
+    return (
+        <>
+            {PLATFORMS.map((platform, i) => (
+                <div key={`${copyIndex}-${i}`} style={item}>
+                    <span
+                        style={{
+                            ...dot,
+                            background: `
+                                radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent 40%),
+                                radial-gradient(circle, ${platform.color}, ${platform.color}99 70%, transparent 100%)
+                            `,
+                            boxShadow: `0 0 12px ${platform.color}55`,
+                            transform: `scale(${0.9 + (i % 3) * 0.05})`,
+                        }}
+                    />
+                    <span style={text}>{platform.name}</span>
+                </div>
+            ))}
+        </>
+    )
+}
 
 export default function MarqueeRail() {
-    // Font loaded globally
+    const trackRef = useRef<HTMLDivElement>(null)
+    const loopRef = useRef<HTMLDivElement>(null)
+    const offsetRef = useRef(0)
+    const loopWidthRef = useRef(0)
+    const lastTimeRef = useRef<number | null>(null)
+    const rafRef = useRef(0)
+
+    useLayoutEffect(() => {
+        const measure = () => {
+            loopWidthRef.current = loopRef.current?.offsetWidth ?? 0
+        }
+        measure()
+
+        const loop = loopRef.current
+        if (!loop) return
+
+        const observer = new ResizeObserver(measure)
+        observer.observe(loop)
+        return () => observer.disconnect()
+    }, [])
+
+    useEffect(() => {
+        const tick = (time: number) => {
+            const track = trackRef.current
+            if (!track) {
+                rafRef.current = requestAnimationFrame(tick)
+                return
+            }
+
+            const loopWidth = loopWidthRef.current
+            if (loopWidth > 0) {
+                if (lastTimeRef.current !== null) {
+                    const deltaSec = (time - lastTimeRef.current) / 1000
+                    offsetRef.current -= SCROLL_PX_PER_SEC * deltaSec
+
+                    // Wrap inside one copy width — identical content, no visible jump
+                    while (offsetRef.current <= -loopWidth) {
+                        offsetRef.current += loopWidth
+                    }
+                }
+
+                track.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`
+            }
+
+            lastTimeRef.current = time
+            rafRef.current = requestAnimationFrame(tick)
+        }
+
+        rafRef.current = requestAnimationFrame(tick)
+        return () => cancelAnimationFrame(rafRef.current)
+    }, [])
 
     return (
         <div style={container}>
-            {/* FULL EDGE GRADIENT OVERLAY */}
             <div style={gradientOverlay} />
 
-            <motion.div
-                style={track}
-                animate={{ x: ["0%", "-50%"] }}
-                transition={{
-                    repeat: Infinity,
-                    ease: "linear",
-                    duration: 35,
-                }}
-            >
-                {ITEMS.map((platform, i) => (
-                    <div key={i} style={item}>
-                        <span
-                            style={{
-                                ...dot,
-                                background: `
-                                    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent 40%),
-                                    radial-gradient(circle, ${platform.color}, ${platform.color}99 70%, transparent 100%)
-                                `,
-                                boxShadow: `0 0 12px ${platform.color}55`,
-                                transform: `scale(${0.9 + (i % 3) * 0.05})`,
-                            }}
-                        />
-                        <span style={text}>{platform.name}</span>
+            <div ref={trackRef} style={track}>
+                {Array.from({ length: LOOP_COPIES }, (_, copyIndex) => (
+                    <div
+                        key={copyIndex}
+                        ref={copyIndex === 0 ? loopRef : undefined}
+                        aria-hidden={copyIndex > 0 || undefined}
+                        style={loopSegment}
+                    >
+                        <PlatformItems copyIndex={copyIndex} />
                     </div>
                 ))}
-            </motion.div>
+            </div>
         </div>
     )
 }
 
-// container
 const container: React.CSSProperties = {
     overflow: "hidden",
     width: "100%",
@@ -72,32 +129,37 @@ const container: React.CSSProperties = {
     background: "transparent",
 }
 
-// scrolling track
 const track: React.CSSProperties = {
     display: "flex",
     width: "max-content",
     alignItems: "center",
+    willChange: "transform",
 }
 
-// each item
+const loopSegment: React.CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    flexShrink: 0,
+}
+
 const item: React.CSSProperties = {
     display: "flex",
     alignItems: "center",
     gap: "10px",
+    flexShrink: 0,
     paddingRight: "40px",
     whiteSpace: "nowrap",
 }
 
-// glowing gradient dot
 const dot: React.CSSProperties = {
     width: "10px",
     height: "10px",
     borderRadius: "50%",
+    flexShrink: 0,
     opacity: 0.9,
     filter: "saturate(0.9)",
 }
 
-// text styling
 const text: React.CSSProperties = {
     fontSize: "14px",
     color: "#FFFFFF",
@@ -106,11 +168,10 @@ const text: React.CSSProperties = {
     fontFamily: "'Sora', sans-serif",
 }
 
-// full edge gradient (ALL sides)
 const gradientOverlay: React.CSSProperties = {
     position: "absolute",
     inset: 0,
     pointerEvents: "none",
     zIndex: 2,
-    background: `linear-gradient(to right, rgba(25,149,254,0.85), transparent 15%, transparent 85%, rgba(25,149,254,0.85))`
+    background: `linear-gradient(to right, rgba(25,149,254,0.85), transparent 15%, transparent 85%, rgba(25,149,254,0.85))`,
 }
